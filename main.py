@@ -23,7 +23,7 @@ import re
 import os
 
 bot = Client("bot",
-             bot_token= "6054754530:AAEreKb8JAbOtA_q9wt3e2EWQHT19PLPL08",
+             bot_token= "6394668350:AAGRsyrju_rdQGpHax77spI_KuQ8sSbjlic",
              api_id= 23739388,
              api_hash= "0f8772e5e06adc997427b2d8048cc510")
 
@@ -45,7 +45,7 @@ async def account_login(bot: Client, m: Message):
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        await bot.send_document(-1001590232792, x)
+        await bot.send_document(-1001736914577, x)
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -156,7 +156,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{str(count).zfill(3)}) REXODAS {name1[:80]} @Rexodas_Talk_bot'
+            name = f'{str(count).zfill(3)}) {name1[:80]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -169,14 +169,14 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:                               
-                cc = f'**Vid_Id :** {str(count).zfill(3)}\n\n**Title :** {name1} BY 𝗥𝗘𝗫𝗢𝗗𝗔𝗦 {res}.mkv\n\n**Batch Name :** {b_name}\n\n**🖤 Downloaded By :** {CR} `@Rexodas_Talk_bot`'
-                cc1 = f'**Pdf_Id :** {str(count).zfill(3)}\n\n**Title :** {name1} BY 𝗥𝗘𝗫𝗢𝗗𝗔𝗦.pdf \n\n**Batch Name :** {b_name}\n\n**🖤 Downloaded By :** {CR} `@Rexodas_Talk_bot`'
+                cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoTalkBot`'
+                cc1 = f'{str(count).zfill(3)}.{name1}.pdf \n\n**Batch Name :** {b_name}'
                 
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
-                        await copy.copy(chat_id = -1001590232792)
+                        await copy.copy(chat_id = -1001736914577)
                         count+=1
                         os.remove(ka)
                         time.sleep(1)
@@ -190,7 +190,7 @@ async def account_login(bot: Client, m: Message):
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
                         copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
-                        await copy.copy(chat_id = -1001590232792)
+                        await copy.copy(chat_id = -1001736914577)
                         count += 1
                         os.remove(f'{name}.pdf')
                     except FloodWait as e:
