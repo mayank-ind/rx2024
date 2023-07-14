@@ -108,15 +108,6 @@ async def account_login(bot: Client, m: Message):
             res = "UN"
     except Exception:
             res = "UN"
-    
-    await editable.edit("**Enter Your Name or send `de` for use default**")
-    input3: Message = await bot.listen(editable.chat.id)
-    raw_text3 = input3.text
-    await input3.delete(True)
-    if raw_text3 == 'de':
-        CR = credit
-    else:
-        CR = raw_text3
 
     await editable.edit("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
     input6 = message = await bot.listen(editable.chat.id)
@@ -156,7 +147,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{str(count).zfill(3)}) {name1[:80]}'
+            name = f'{str(count).zfill(3)}) REXODAS {name1[:80]} @RexoTalkBot'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -169,8 +160,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:                               
-                cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoTalkBot`'
-                cc1 = f'{str(count).zfill(3)}.{name1}.pdf \n\n**Batch Name :** {b_name}'
+                cc = f'{str(count).zfill(3)}.{name1} BY REXODAS.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoTalkBot`'
+                cc1 = f'{str(count).zfill(3)}.{name1} BY REXODAS.pdf \n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoTalkBot`'
                 
                 if "drive" in url:
                     try:
