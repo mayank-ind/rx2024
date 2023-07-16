@@ -208,8 +208,8 @@ async def account_login(bot: Client, m: Message):
             try:
                  await m.reply_document("failed_url")
                  continue 
-    except Exception as e:
-      await m.reply_text(e)
-    await m.reply_text("Batch Done ✅")
+   except Exception as e:
+     await m.reply_text(e)
+   await m.reply_text("Batch Done ✅")
    
 bot.run()
