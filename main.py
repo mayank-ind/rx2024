@@ -203,11 +203,13 @@ async def account_login(bot: Client, m: Message):
                 count += 1
                 continue
 
-    except Exception as e:
-        await m.reply_text(e)
+      if failed_url:
         f.write(failed_url)
+        try:
         await m.reply_document("failed_url")
-    await m.reply_text("Batch Successfully Completed ☺️")
-
+        continue 
+   except Exception as e:
+   await m.reply_text(e)
+ await m.reply_text("Batch Successfully Completed ☺️")
 
 bot.run()
