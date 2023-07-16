@@ -203,9 +203,9 @@ async def account_login(bot: Client, m: Message):
                 count += 1
                 continue
 
-             if failed_url:
+            if failed_url:
                 f.write(failed_url)
-             try:
+            try:
                  await m.reply_document("failed_url")
                  continue 
     except Exception as e:
