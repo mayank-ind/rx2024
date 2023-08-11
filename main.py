@@ -146,7 +146,7 @@ async def account_login(bot: Client, m: Message):
              id =  url.split("/")[-2]
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
-            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").strip()
+            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").replace(".pdf", " ").replace("_pdf", " ").strip()
             name = f'{str(count).zfill(3)}){name1[:80]}'
 
             if "youtu" in url:
@@ -160,8 +160,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:                               
-                cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** Group Admin'
-                cc1 = f'{str(count).zfill(3)}.{name1}.pdf \n\n**Batch Name :** {b_name}'
+                cc = f'{str(count).zfill(3)}. {name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** Group Admin'
+                cc1 = f'{str(count).zfill(3)}. {name1}\n\n**Batch Name :** {b_name}'
                 
                 if "drive" in url:
                     try:
