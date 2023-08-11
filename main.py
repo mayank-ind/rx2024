@@ -147,7 +147,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").replace("pdf", " ").replace("_pdf", " ").strip()
-            name = f'{str(count).zfill(3)}. {name1[:60]}'
+            name = f'{str(count).zfill(3)}. {name1[:80]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
