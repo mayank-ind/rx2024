@@ -147,7 +147,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").replace(".pdf", " ").replace("_pdf", " ").strip()
-            name = f'{str(count).zfill(3)}){name1[:80]}'
+            name = f'{str(count).zfill(3)}). {name1[:60]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -164,6 +164,7 @@ async def account_login(bot: Client, m: Message):
                 cc1 = f'{str(count).zfill(3)}. {name1}\n\n**Batch Name :** {b_name}'
                 
                 if "drive" in url:
+                  name = f'{str(count).zfill(3)}). {name1[:60].replace('.pdf', '')}.pdf'
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
@@ -176,6 +177,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 elif ".pdf" in url:
+                  name = f'{str(count).zfill(3)}). {name1[:60].replace('.pdf', '')}.pdf'
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
