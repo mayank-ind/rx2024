@@ -164,7 +164,7 @@ async def account_login(bot: Client, m: Message):
                 cc1 = f'{str(count).zfill(3)}. {name1}\n\n**Batch Name :** {b_name}'
                 
                 if "drive" in url:
-                  name = f'{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf'
+                  name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf"
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
@@ -177,7 +177,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 elif ".pdf" in url:
-                  name = f'{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf'
+                  name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf"
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
