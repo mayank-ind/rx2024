@@ -146,7 +146,7 @@ async def account_login(bot: Client, m: Message):
              id =  url.split("/")[-2]
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
-            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").replace(".pdf", " ").replace("_pdf", " ").strip()
+            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("_"," ").replace("__", " ").replace("___", " ").replace("____", " ").replace(".pdf", "").replace("_pdf", "").strip()
             name = f'{str(count).zfill(3)}. {name1[:60]}'
 
             if "youtu" in url:
@@ -165,7 +165,7 @@ async def account_login(bot: Client, m: Message):
                 
                 if "drive" in url:
                     try:
-                        name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf"
+                        name = f"{str(count).zfill(3)}. {name1[:60].replace(".pdf", "")}"
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
                         await copy.copy(chat_id = -1001574117020)
@@ -178,14 +178,14 @@ async def account_login(bot: Client, m: Message):
                         continue
                 elif ".pdf" in url:
                     try:
-                        name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}.pdf"
-                        cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
+                        name = f"{str(count).zfill(3)}. {name1[:60].replace(".pdf", "")}"
+                        cmd = f'yt-dlp -o "{name}" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
                         copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
                         await copy.copy(chat_id = -1001574117020)
                         count += 1
-                        os.remove(f'{name}.pdf')
+                        os.remove(f'{name}')
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
