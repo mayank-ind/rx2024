@@ -165,7 +165,7 @@ async def account_login(bot: Client, m: Message):
                 
                 if "drive" in url:
                     try:
-                        name = f"{str(count).zfill(3)}. {name1[:60].replace(".pdf", "")}"
+                        name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}"
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
                         await copy.copy(chat_id = -1001574117020)
@@ -178,11 +178,11 @@ async def account_login(bot: Client, m: Message):
                         continue
                 elif ".pdf" in url:
                     try:
-                        name = f"{str(count).zfill(3)}. {name1[:60].replace(".pdf", "")}"
+                        name = f"{str(count).zfill(3)}. {name1[:60].replace('.pdf', '')}"
                         cmd = f'yt-dlp -o "{name}" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
+                        copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}', caption=cc1)
                         await copy.copy(chat_id = -1001574117020)
                         count += 1
                         os.remove(f'{name}')
