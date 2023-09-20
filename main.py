@@ -161,7 +161,7 @@ async def account_login(bot: Client, m: Message):
 
             try:                               
                 cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoChatTalk`'
-                cc1 = f'{name1}\n\n**Join :-**@PdfHubRebornNew'
+                cc1 = f'{name1}\n\n**Join :-** @PdfHubRebornNew'
                 
                 if "drive" in url:
                     try:
