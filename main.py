@@ -147,7 +147,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("pdf", " ").replace("_", " ").replace("__", " ").replace("___", " ").replace("____", " ").strip()
-            name = f'REXODAS {name1[:80]}'
+            name = f'PDFHUB {name1[:80]} @PdfHubRebornNew'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -161,7 +161,7 @@ async def account_login(bot: Client, m: Message):
 
             try:                               
                 cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoChatTalk`'
-                cc1 = f'{str(count).zfill(3)}. {name1}\n\n**Batch Name :** {b_name}'
+                cc1 = f'{name1}\n\n**Join :-**@PdfHubRebornNew'
                 
                 if "drive" in url:
                     try:
