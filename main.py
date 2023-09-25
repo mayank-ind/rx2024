@@ -30,7 +30,7 @@ bot = Client("bot",
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(m.chat.id, "Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nPress /Pyro")
+    editable = await m.reply_text("Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nPress /Pyro")
 
 
 @bot.on_message(filters.command("stop") & filters.user(ADMINS))
@@ -41,7 +41,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["Pyro"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(m.chat.id, "**Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nNow Send txt file**")
+    editable = await m.reply_text("**Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nNow Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
@@ -72,12 +72,12 @@ async def account_login(bot: Client, m: Message):
         for i in content:
             links.append(i.split("://", 1))
    
-    await editable.edit(m.chat.id, "Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
+    await editable.edit(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
     await input0.delete(True)
 
-    await editable.edit(m.chat.id, "**Enter Batch Name or send d for grabing from text filename.**")
+    await editable.edit("**Enter Batch Name or send d for grabing from text filename.**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
     await input1.delete(True)
@@ -86,7 +86,7 @@ async def account_login(bot: Client, m: Message):
     else:
         b_name = raw_text0
 
-    await editable.edit(m.chat.id, "**Enter resolution**")
+    await editable.edit("**Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     await input2.delete(True)
@@ -108,7 +108,7 @@ async def account_login(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit(m.chat.id, "Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
+    await editable.edit("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
