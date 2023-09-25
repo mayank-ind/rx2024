@@ -30,7 +30,7 @@ bot = Client("bot",
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nPress /Pyro")
+    editable = await m.reply_text("Hello Bruh 🔥\n\nPress /Pyro")
 
 
 @bot.on_message(filters.command("stop") & filters.user(ADMINS))
@@ -41,7 +41,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["Pyro"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("**Hello Bruh 🔥 [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\nNow Send txt file**")
+    editable = await m.reply_text("**Hello Bruh 🔥\n\nNow Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
@@ -159,8 +159,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:                               
-                cc = f'{str(count).zfill(3)}.{name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@RexoChatTalk`'
-                cc1 = f'{str(count).zfill(3)}.{name1}\n\n**Batch Name :** {b_name}'
+                cc = f'{str(count).zfill(3)}. {name1} {res}.mkv\n\n**Batch Name :** {b_name}\n\n**Downloaded By :** 𝐑𝐄𝐗𝐎𝐃𝐀𝐒 🇮🇳\n`@Rexo_Chat_Bot`'
+                cc1 = f'{str(count).zfill(3)}. {name1}\n\n**Batch Name :** {b_name}'
                 
                 if "drive" in url:
                     try:
@@ -200,7 +200,7 @@ async def account_login(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("Batch Successfully Completed ☺️")
+    await m.reply_text("`Batch Done`")
 
 
 bot.run()
