@@ -32,7 +32,7 @@ keyboard = InlineKeyboardMarkup( [ [
             InlineKeyboardButton(text="Repo 🛠️", url="https://lund-lelo.com/repo-lega", ), ], ] )
 
 
-@bot.on_message(filters.command("stop") & (filters.chat(LOG) | filters.user(ADMINS)))
+@bot.on_message(filters.command("start") & (filters.chat(LOG) | filters.user(ADMINS)))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(m.chat.id, f"Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nPress /Pyro to Start Me....🚀")
 
@@ -45,7 +45,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command("stop") & (filters.chat(LOG) | filters.user(ADMINS)))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(m.chat.id, f"**Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nNow Send txt file**", reply_markup=keyboard)
+    editable = await bot.send_message(m.chat.id, f"**Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nNow Send txt file**", reply_markup=keyboard)
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
@@ -88,7 +88,6 @@ async def account_login(bot: Client, m: Message):
     await bot.send_message(m.chat.id, "**Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
-    await input2.delete(True)
     try:
         if raw_text2 == "144":
             res = "256x144"
@@ -107,11 +106,9 @@ async def account_login(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
+    editable = await bot.send_message(m.chat.id, "Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
-    await input6.delete(True)
-    await editable.delete()
 
     thumb = input6.text
     if thumb.startswith("http://") or thumb.startswith("https://"):
