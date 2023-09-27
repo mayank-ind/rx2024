@@ -73,21 +73,19 @@ async def account_login(bot: Client, m: Message):
         for i in content:
             links.append(i.split("://", 1))
    
-    await editable.edit(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
+    editable5 = await bot.send_message(m.chat.id, f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
-    await input0.delete(True)
 
-    await editable.edit("**Enter Batch Name**")
+    await bot.send_message(m.chat.id, "**Enter Batch Name**")
     input1: Message = await bot.listen(editable.chat.id)
     raw_text0 = input1.text
-    await input1.delete(True)
     if raw_text0 == 'd':
         b_name = file_name
     else:
         b_name = raw_text0
 
-    await editable.edit("**Enter resolution**")
+    await bot.send_message(m.chat.id, "**Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     await input2.delete(True)
