@@ -37,12 +37,6 @@ keyboard = InlineKeyboardMarkup( [ [
             InlineKeyboardButton(text="Channel 🛡️", url="https://www.google.com", ),
             InlineKeyboardButton(text="Repo 🛠️", url="https://lund-lelo.com/repo-lega", ), ], ] )
 
-
-@bot.on_message(filters.command("start") & (filters.chat(LOG) | filters.user(ADMINS)))
-async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(m.chat.id, f"Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nPress /Pyro to Start Me....🚀")
-
-
 @bot.on_message(filters.command("stop") & (filters.chat(LOG) | filters.user(ADMINS)))
 async def restart_handler(_, m):
     await m.reply_text("**Oh! Fuck 🚨**", True)
@@ -166,11 +160,11 @@ async def account_login(bot: Client, m: Message):
                     cc += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
                     cc += f"**Downloaded By :** Group Admin"
-                cc1 = f"{str(count).zfill(3)}.{name1}.mkv\n\n**Batch Name :** {b_name}\n\n"
+                cc1 = f"{str(count).zfill(3)}.{name1}\n\n**Batch Name :** {b_name}\n\n"
                 if message.from_user.username:
-                    cc += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
+                    cc1 += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
-                    cc += f"**Downloaded By :** Group Admin"
+                    cc1 += f"**Downloaded By :** Group Admin"
                 
                 if "drive" in url:
                     try:
