@@ -18,6 +18,7 @@ import time
 import asyncio
 from pyrogram.types import User, Message
 import config
+from addapdf import *
 import sys
 import re
 import os
