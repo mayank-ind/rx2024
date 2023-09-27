@@ -8,5 +8,5 @@ FR_TOKEN = os.environ.get("FR_TOKEN", "f0907b55-922e-414a-8d21-47c1887bb90d"))
 API_KEY = os.environ.get("API_KEY", " "))
 API_HASH = os.environ.get("API_HASH", "807495c78593302dd5008b4775e9b01b")
 ADMINS = int(os.environ.get("ADMINS", "1503980120"))
-GROUPS = [int(chat) for chat in os.getenv("GROUPS", "-1001927764573").split(",") if chat != ""]
+LOG = [int(chat) for chat in os.getenv("LOG", "-1001927764573").split(",") if chat != ""]
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------#
