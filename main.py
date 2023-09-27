@@ -1,17 +1,22 @@
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
+from pyrogram.errors.exceptions.flood_420 import floodWait
 import requests
+import pyrogram
 import json
 import subprocess
 from pyrogram import Client, filters
+from pyrogram import Client as bot
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import FloodWait
 from pyromod import listen
-from pyrogram.types import Message
+from pyrogram.types import Message, User
 from pyrogram import Client, filters
 from p_bar import progress_bar
 from subprocess import getstatusoutput
-from aiohttp import ClientSession
+import aiohttp
+import asyncio
+import aiofiles
 import helper
 from logger import logging
 import time
