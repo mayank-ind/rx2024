@@ -22,10 +22,10 @@ import sys
 import re
 import os
 
-bot = Client("bot",
-             bot_token= "6101033089:AAEZ6ObvNn87UusS3YDpj9cTQejRs_cVXdc",
-             api_id= 10010060,
-             api_hash= "807495c78593302dd5008b4775e9b01b")
+bot = Client("bot", bot_token=config.BOT_TOKEN, api_id=config.API_ID, api_hash=config.API_HASH)
+
+ADMINS = config.ADMINS
+LOG = config.LOG
 
 keyboard = InlineKeyboardMarkup( [ [
             InlineKeyboardButton(text="Channel 🛡️", url="https://www.google.com", ),
@@ -34,7 +34,7 @@ keyboard = InlineKeyboardMarkup( [ [
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello Bruh 🔥\n\nPress /Pyro to Start Me....🚀")
+    editable = await m.reply_text(m.chat.id, f"Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nPress /Pyro to Start Me....🚀")
 
 
 @bot.on_message(filters.command("stop") & filters.user(ADMINS))
@@ -45,7 +45,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["Pyro"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("**Hello Bruh 🔥\n\nNow Send txt file**", reply_markup=keyboard)
+    editable = await m.reply_text(m.chat.id, f"**Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nNow Send txt file**", reply_markup=keyboard)
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
