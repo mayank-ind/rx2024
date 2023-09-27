@@ -43,7 +43,7 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@bot.on_message(filters.command("stop") & (filters.chat(LOG) | filters.user(ADMINS)))
+@bot.on_message(filters.command("Pyro") & (filters.chat(LOG) | filters.user(ADMINS)))
 async def account_login(bot: Client, m: Message):
     editable = await bot.send_message(m.chat.id, f"**Hello [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Bruh 🔥\n\nNow Send txt file**", reply_markup=keyboard)
     input: Message = await bot.listen(editable.chat.id)
