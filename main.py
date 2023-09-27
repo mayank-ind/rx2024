@@ -1,5 +1,5 @@
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
-from pyrogram.errors.exceptions.flood_420 import floodWait
+from pyrogram.errors.exceptions.flood_420 import FloodWait
 import requests
 import pyrogram
 import json
