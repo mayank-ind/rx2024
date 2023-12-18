@@ -192,10 +192,10 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    prog = await m.reply_text(f"**Processing Next Output 🦾🔥**")
+                    #prog = await m.reply_text(f"**Processing Next Output 🦾🔥**")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
-                    await prog.delete(True)
+                    #await prog.delete(True)
                     await helper.send_vid(bot, m, cc, filename, thumb, name)
                     count += 1
 
