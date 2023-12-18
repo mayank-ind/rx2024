@@ -114,8 +114,8 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name):
     subprocess.run(
         f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"',
         shell=True)
-   # await prog.delete(True)
-   # reply = await m.reply_text(f"**Uploading ...** - `{name}`")
+    await prog.delete(True)
+    reply = await m.reply_text(f"**Uploading ...** - `{name}`")
     try:
         if thumb == "no":
             thumbnail = f"{filename}.jpg"
@@ -129,16 +129,14 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name):
     start_time = time.time()
 
     try:
-        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur) #, progress=progress_bar,progress_args=(reply,start_time))
+        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur,progress=progress_bar,progress_args=(reply,start_time))
     except TimeoutError:
         await asyncio.sleep(5) 
-        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur) #, progress=progress_bar,progress_args=(reply,start_time))    
+        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur,progress=progress_bar,progress_args=(reply,start_time))    
     except Exception:
-        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur) #progress=progress_bar,progress_args=(reply,start_time))
-        
-
+        await bot.send_video(m.chat.id, video=filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur,progress=progress_bar,progress_args=(reply,start_time))
 
     os.remove(filename)
-
     os.remove(f"{filename}.jpg")
-   # await prog.delete(True)
+    await reply.delete(True)
+    await prog.delete(True)
