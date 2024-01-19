@@ -142,7 +142,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("pdf", " ").replace("_", " ").replace("__", " ").replace("___", " ").replace("____", " ").strip()
-            name = f'REXODAS {name1[:80]}'
+            name = F'{name1[:80]} By:🅼🆄🅽🅽🅰 🅱🅷🅰🅸🆈🅰'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -190,10 +190,10 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    # prog = await m.reply_text(f"**Processing Next Output 🦾🔥**")
+                    prog = await m.reply_text(f"**Processing Next Output 🦾🔥**")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
-                    # await prog.delete(True)
+                    await prog.delete(True)
                     await helper.send_vid(bot, m, cc, filename, thumb, name)
                     count += 1
 
