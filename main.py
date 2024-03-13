@@ -155,12 +155,12 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f"**{str(count).zfill(3)}.** {name1}.mkv\n\n**Batch Name :** {b_name}\n\n"
+                cc = f"**{str(count).zfill(3)}.** {name1}.mkv\n\n**Batch Name :**<a href='https://t.me/TargetSsc_2024'>{b_name}</a>\n\n"
                 if message.from_user.username:
                     cc += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
                     cc += f"**Downloaded By :** Group Admin"
-                cc1 = f"**{str(count).zfill(3)}.** {name1}\n\n**Batch Name :** {b_name}\n\n"
+                cc1 = f"**{str(count).zfill(3)}.** {name1}\n\n**Batch Name :**<a href='https://t.me/TargetSsc_2024'>{b_name}</a>\n\n"
                 if message.from_user.username:
                     cc1 += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
