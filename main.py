@@ -121,9 +121,9 @@ async def account_login(bot: Client, m: Message):
     inputlink = message = await bot.listen(editable.chat.id)
     raw_textlink = inputlink.text
 
-    inputlinkurl = inputlink.text
-    if inputlinkurl.startswith("http://") or inputlinkurl.startswith("https://"):
-        urllink == inputlinkurl
+    
+    if raw_textlink.startswith("http://") or raw_textlink.startswith("https://"):
+        urllink == raw_textlink
     else:
         urllink == "https://t.me/targetssc_2024"
 
