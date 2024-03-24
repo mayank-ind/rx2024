@@ -117,6 +117,18 @@ async def account_login(bot: Client, m: Message):
     else:
         thumb == "no"
 
+    editable = await bot.send_message(m.chat.id, "Now send the **Link url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.com```\n\nor Send `no`")
+    inputlink = message = await bot.listen(editable.chat.id)
+    raw_textlink = inputlink.text
+
+    inputlinkurl = inputlink.text
+    if inputlinkurl.startswith("http://") or inputlinkurl.startswith("https://"):
+        urllink == inputlinkurl
+    else:
+        urllink == "https://t.me/targetssc_2024"
+
+            
+
     if len(links) == 1:
         count = 1
     else:
@@ -142,7 +154,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("pdf", " ").replace("_", " ").replace("__", " ").replace("___", " ").replace("____", " ").strip()
-            name = F'{name1[:80]} By:🅼🆄🅽🅽🅰 🅱🅷🅰🅸🆈🅰'
+            name = F'{name1[:80]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -155,12 +167,12 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f"**{str(count).zfill(3)}.** {name1}.mkv\n\n**Batch Name :**<a href='https://t.me/TargetSsc_2024'>{b_name}</a>\n\n"
+                cc = f"**{str(count).zfill(3)}.** {name1}.mkv\n\n**Batch Name :**<a href='{urllink}'>{b_name}</a>\n\n"
                 if message.from_user.username:
                     cc += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
                     cc += f"**Downloaded By :** Group Admin"
-                cc1 = f"**{str(count).zfill(3)}.** {name1}\n\n**Batch Name :**<a href='https://t.me/TargetSsc_2024'>{b_name}</a>\n\n"
+                cc1 = f"**{str(count).zfill(3)}.** {name1}\n\n**Batch Name :**<a href='{urllink}'>{b_name}</a>\n\n"
                 if message.from_user.username:
                     cc1 += f"**Downloaded By :** {message.from_user.first_name}\n`@{message.from_user.username}`"
                 else:
