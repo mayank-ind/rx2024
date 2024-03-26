@@ -123,9 +123,9 @@ async def account_login(bot: Client, m: Message):
 
     
     if raw_textlink.startswith("http://") or raw_textlink.startswith("https://"):
-        urllink == raw_textlink
+        urllink = raw_textlink
     else:
-        urllink == "https://t.me/targetssc_2024"
+        urllink = "https://t.me/targetssc_2024"
 
             
 
